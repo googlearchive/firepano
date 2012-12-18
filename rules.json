@@ -1,0 +1,20 @@
+{
+  "rules": {
+    // We don't want anyone to see any photo if they don't know the URL.
+    ".read": false,
+    ".write": false,
+    "pano": {
+      // We don't want anyone enumerating the list of photos.
+      ".read": false,
+      ".write": false,
+      "$pano": {
+        // $pano is the ID of the photo, which you can only know if someone
+        // shared the URL with you, or if you uploaded a photo.
+        ".read": true,
+        // Only new photos are allowed, we don't want the ability to replace
+        // and existing photo.
+        ".write": "!data.exists()"
+      }
+    }
+  }
+}
