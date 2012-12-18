@@ -28,5 +28,9 @@ Exercises for the reader
 
 License
 -------
-No part of this project may be copied, modified, propagated, or distributed
-except according to terms in the accompanying LICENSE file.
+No part of this project, except sha256.js, may be copied, modified, propagated,
+or distributed except according to terms in the accompanying LICENSE file.
+
+sha256.js is part of [CryptoJS](http://code.google.com/p/crypto-js/) which
+is distributed under the terms of
+[this license](http://code.google.com/p/crypto-js/wiki/License) (BSD 3-clause).
