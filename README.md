@@ -27,8 +27,7 @@ Exercises for the reader
 
 License
 -------
-No part of this project, except sha256.js, may be copied, modified, propagated,
-or distributed except according to terms in the accompanying LICENSE file.
+[MIT](http://firebase.mit-license.org), except sha256.js.
 
 sha256.js is part of [CryptoJS](http://code.google.com/p/crypto-js/) which
 is distributed under the terms of
