@@ -12,7 +12,7 @@
         // shared the URL with you, or if you uploaded a photo.
         ".read": true,
         // Only new photos are allowed, we don't want the ability to replace
-        // and existing photo.
+        // an existing photo.
         ".write": "!data.exists()"
       }
     }
