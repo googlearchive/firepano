@@ -1,4 +1,3 @@
-
 var spinner = new Spinner({color: '#ddd'});
 var firebaseRef = 'https://firepano.firebaseio.com/';
 
@@ -26,7 +25,6 @@ function handleFileSelect(evt) {
 }
 
 $(function() {
-  new Firebase(firebaseRef + '.info/connected').once('value', function(s) { } );
   $('#spin').append(spinner);
 
   var idx = window.location.href.indexOf('#');
