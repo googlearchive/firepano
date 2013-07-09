@@ -3,7 +3,7 @@ Firepano
 
 A simple client-side photo sharing site.
 
-### [Live Demo](http://firebase.github.com/firepano/) | [Example Panorama](http://firebase.github.com/firepano/#70ed37564320f9f4f8d753ae31fb6c1fad0bcc7630a607b6e8ee7e7cfbb650e4)
+### [Live Demo](http://firebase.github.io/firepano/) | [Example Panorama](http://firebase.github.io/firepano/#70ed37564320f9f4f8d753ae31fb6c1fad0bcc7630a607b6e8ee7e7cfbb650e4)
 
 How does it work?
 -----------------
