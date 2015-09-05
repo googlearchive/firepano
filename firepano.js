@@ -5,20 +5,19 @@ function handleFileSelect(evt) {
   var selectedFileURL = evt.target.files[0];
   var reader = new FileReader();
   reader.onload = function(e) {
-      var filePayload = e.target.result;
-      // Generate a location that can't be guessed using the file's contents and a random number
-      var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
-      var fileRef = new Firebase(firebaseRef + 'pano/' + hash + '/filePayload');
-      spinner.spin(document.getElementById('spin'));
-      // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-      fileRef.set(filePayload, function() { 
-        spinner.stop();
-        document.getElementById("pano").src = e.target.result;
-        $('#file-upload').hide();
-        // Update the location bar so the URL can be shared with others
-        window.location.hash = hash;
-      });
-    };
+    var filePayload = e.target.result;
+    // Generate a location that can't be guessed using the file's contents and a random number
+    var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
+    var fileRef = new Firebase(firebaseRef + 'pano/' + hash + '/filePayload');
+    spinner.spin(document.getElementById('spin'));
+    // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
+    fileRef.set(filePayload, function() { 
+      spinner.stop();
+      document.getElementById("pano").src = e.target.result;
+      $('#file-upload').hide();
+      // Update the location bar so the URL can be shared with others
+      window.location.hash = hash;
+    });
   };
   reader.readAsDataURL(selectedFileURL);
 }
