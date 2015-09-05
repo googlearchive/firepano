@@ -2,17 +2,16 @@ var spinner = new Spinner({color: '#ddd'});
 var firebaseRef = 'https://firepano.firebaseio.com/';
 
 function handleFileSelect(evt) {
-  var f = evt.target.files[0];
+  var selectedFileURL = evt.target.files[0];
   var reader = new FileReader();
-  reader.onload = (function(theFile) {
-    return function(e) {
+  reader.onload = function(e) {
       var filePayload = e.target.result;
       // Generate a location that can't be guessed using the file's contents and a random number
       var hash = CryptoJS.SHA256(Math.random() + CryptoJS.SHA256(filePayload));
-      var f = new Firebase(firebaseRef + 'pano/' + hash + '/filePayload');
+      var fileRef = new Firebase(firebaseRef + 'pano/' + hash + '/filePayload');
       spinner.spin(document.getElementById('spin'));
       // Set the file payload to Firebase and register an onComplete handler to stop the spinner and show the preview
-      f.set(filePayload, function() { 
+      fileRef.set(filePayload, function() { 
         spinner.stop();
         document.getElementById("pano").src = e.target.result;
         $('#file-upload').hide();
@@ -20,8 +19,8 @@ function handleFileSelect(evt) {
         window.location.hash = hash;
       });
     };
-  })(f);
-  reader.readAsDataURL(f);
+  };
+  reader.readAsDataURL(selectedFileURL);
 }
 
 $(function() {
@@ -36,8 +35,8 @@ $(function() {
   } else {
     // A hash was passed in, so let's retrieve and render it.
     spinner.spin(document.getElementById('spin'));
-    var f = new Firebase(firebaseRef + '/pano/' + hash + '/filePayload');
-    f.once('value', function(snap) {
+    var fileRef = new Firebase(firebaseRef + '/pano/' + hash + '/filePayload');
+    fileRef.once('value', function(snap) {
       var payload = snap.val();
       if (payload != null) {
         document.getElementById("pano").src = payload;
