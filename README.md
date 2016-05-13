@@ -1,3 +1,7 @@
+# This is a legacy Firebase example (for SDK 2.x.x). You probably want to use one of the up-to-date examples at https://firebase.google.com/docs/samples
+
+---
+
 Firepano
 ========
 
@@ -10,7 +14,7 @@ How does it work?
 The security model of this simple photo sharing app is predicated on having
 locations being unguessable. We construct paths into Firebase using a hash of
 the file being uploaded. Then, anyone that has access to the share-able link
-can then lookup the location in Firebase and view its contents. 
+can then lookup the location in Firebase and view its contents.
 
 A simple rule set is required to make sure none of the keys are enumerable
 from Firebase. This prevents retrieval of the keys from any of the Firebase
